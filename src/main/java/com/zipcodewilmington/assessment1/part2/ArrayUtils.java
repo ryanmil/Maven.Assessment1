@@ -33,11 +33,11 @@ public class ArrayUtils {
             return null;
         }
 
-        Object[] resized = new Object[objectArray.length - removedCount];
+        Integer[] resized = new Integer[objectArray.length - removedCount];
 
         for (int i = 0, j = 0; i < objectArray.length; i++) {
             if(!objectArray[i].equals(objectToRemove)){
-                resized[j] = objectArray[i];
+                resized[j] = (Integer) objectArray[i];
                 j++;
             }
         }
@@ -83,13 +83,13 @@ public class ArrayUtils {
      * given two arrays `objectArray` and `objectArrayToAdd`, return an array containing all elements in `objectArray` and `objectArrayToAdd`
      */
     public static Object[] mergeArrays(Object[] objectArray, Object[] objectArrayToAdd) {
-        Object[] merged = new Object[objectArray.length + objectArrayToAdd.length];
+        Integer[] merged = new Integer[objectArray.length + objectArrayToAdd.length];
 
         for (int i = 0; i < objectArray.length; i++) {
-            merged[i] = objectArray[i];
+            merged[i] = (Integer)objectArray[i];
         }
         for (int i = 0; i < objectArrayToAdd.length; i++) {
-            merged[objectArray.length + i] = objectArrayToAdd[i];
+            merged[objectArray.length + i] = (Integer)objectArrayToAdd[i];
         }
         return merged;
     }
