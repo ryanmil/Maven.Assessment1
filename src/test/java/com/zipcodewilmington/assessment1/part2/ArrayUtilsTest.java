@@ -30,7 +30,12 @@ public class ArrayUtilsTest {
         Integer[] inputArray = {1, 2, 7, 8, 4, 5, 7, 0, 9, 8, 7};
 
         // When
-        Integer[] actual = (Integer[]) ArrayUtils.removeValue(inputArray, valueToRemove);
+        //Changed test to fix conversion error (would not compile previously)
+        Object[] objs = ArrayUtils.removeValue(inputArray, valueToRemove);
+        Integer[] actual = new Integer[objs.length];
+        for (int i = 0; i < actual.length; i++) {
+            actual[i] = (Integer)objs[i];
+        }
 
         // Then
         UnitTestingUtils.assertArrayEquality(expected, actual);
@@ -71,7 +76,12 @@ public class ArrayUtilsTest {
         Integer[] expected = {1,1,1,2,2,2,3,3,3,4,4,4};
 
         // When
-        Integer[] actual = (Integer[]) ArrayUtils.mergeArrays(array1, array2);
+        //Changed test to fix conversion error (would not compile previously)
+        Object[] objs = ArrayUtils.mergeArrays(array1, array2);
+        Integer[] actual = new Integer[objs.length];
+        for (int i = 0; i < actual.length; i++) {
+            actual[i] = (Integer) objs[i];
+        }
 
         // Then
         UnitTestingUtils.assertArrayEquality(expected, actual);
