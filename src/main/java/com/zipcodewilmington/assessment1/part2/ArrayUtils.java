@@ -28,6 +28,11 @@ public class ArrayUtils {
      */
     public static Object[] removeValue(Object[] objectArray, Object objectToRemove) {
         Integer removedCount = getNumberOfOccurrences(objectArray, objectToRemove);
+
+        if(objectArray.length - removedCount == 0) {
+            return null;
+        }
+
         Object[] resized = new Object[objectArray.length - removedCount];
 
         for (int i = 0, j = 0; i < objectArray.length; i++) {
